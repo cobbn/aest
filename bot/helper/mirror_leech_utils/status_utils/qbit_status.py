@@ -16,7 +16,6 @@ def get_download(client, tag):
 class QbittorrentStatus:
 
     def __init__(self, listener, seeding=False, queued=False):
-        self.__client = get_client()
         self.__listener = listener
         self.__info = get_download(self.__client, f'{self.__listener.uid}')
         self.queued = queued
