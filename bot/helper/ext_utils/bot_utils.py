@@ -230,7 +230,7 @@ def get_readable_message():
             msg += f"\nᴛɪᴍᴇ: {download.seeding_time()}"
         else:
             msg += f"\nsɪᴢᴇ: {download.size()}"
-        msg += f"<b> | 💣/stop_{download.gid()[:8]}</b></blockquote>\n"
+        msg += f"<b> | 💣/stop_{download.gid()[:8]}</b></blockquote>\n\n"
     if len(msg) == 0:
         return None, None
     dl_speed = 0
