@@ -74,7 +74,7 @@ SIZE_UNITS = ['B', 'KB', 'MB', 'GB', 'TB', 'PB']
 STATUS_START = 0
 PAGES = 1
 PAGE_NO = 1
-STATUS_LIMIT = 4
+STATUS_LIMIT = 6
 
 class MirrorStatus:
     STATUS_UPLOADING = "Uploading"
@@ -230,7 +230,7 @@ def get_readable_message():
             msg += f"\nᴛɪᴍᴇ: {download.seeding_time()}"
         else:
             msg += f"\nsɪᴢᴇ: {download.size()}"
-        msg += f"\n<b>/stop_{download.gid()[:8]}</b></blockquote>\n\n"
+        msg += f"\n<b>/stop_{download.gid()[:8]}</b></blockquote>\n"
     if len(msg) == 0:
         return None, None
     dl_speed = 0
