@@ -23,7 +23,7 @@ class QbittorrentStatus:
         self.message = listener.message
 
     def __update(self):
-        new_info = get_download(self.__client, f'{self.__listener.uid}')
+        new_info = get_download(f'{self.__listener.uid}')
         if new_info is not None:
             self.__info = new_info
 
