@@ -357,7 +357,7 @@ class MirrorLeechListener:
             if mime_type != 0:
                 msg += f'<b>ᴄᴏʀʀᴜᴘᴛᴇᴅ ғɪʟᴇs: </b>{mime_type}\n'
             msg += f'<b>ᴜsᴇʀ ɪᴅ: </b><code>{self.message.from_user.id}</code>\n'
-            msg += f'<b>ᴜᴘʟᴏᴀᴅᴇᴅ ʙʏ: </b></blockquote>{self.tag}\n\n'
+            msg += f'<b>ᴜᴘʟᴏᴀᴅᴇᴅ ʙʏ: </b>{self.tag}</blockquote>\n\n'
             if not files:
                 if self.isPrivate:
                     msg += '<b>ғɪʟᴇs ʜᴀᴠᴇ ɴᴏᴛ ʙᴇᴇɴ sᴇɴᴛ ғᴏʀ ᴀɴ ᴜɴsᴘᴇᴄɪғɪᴇᴅ ʀᴇᴀsᴏɴ.</b>'
@@ -411,12 +411,12 @@ class MirrorLeechListener:
                 buttons = extra_btns(buttons)
                 button = buttons.build_menu(2)
             elif rclonePath:
-                msg += f'<b>⌑ ᴘᴀᴛʜ: </b><code>{rclonePath}</code>\n'
+                msg += f'<b>ᴘᴀᴛʜ: </b><code>{rclonePath}</code>\n'
                 button = None
                 buttons = extra_btns(buttons)
                 button = buttons.build_menu(2)
-            msg += f'<b>⌑ ᴜsᴇʀ ɪᴅ: </b><code>{self.message.from_user.id}</code>\n'
-            msg += f'<b>⌑ ᴜᴘʟᴏᴀᴅᴇᴅ ʙʏ: </b>{self.tag}\n\n'
+            msg += f'<b>ᴜsᴇʀ ɪᴅ: </b><code>{self.message.from_user.id}</code>\n'
+            msg += f'<b>ᴜᴘʟᴏᴀᴅᴇᴅ ʙʏ: </b>{self.tag}</blockquote>\n\n'
 
             if config_dict['MIRROR_LOG_ID']:
                 log_msg = list((await sendMultiMessage(config_dict['MIRROR_LOG_ID'], msg, button)).values())[0]
