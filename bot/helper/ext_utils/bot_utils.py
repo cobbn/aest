@@ -215,8 +215,8 @@ def get_readable_message():
         msg += f"<b>{download.status()}</b> » <i>{escape(f'{download.name()}')}</i>\n"
         if download.status() not in [MirrorStatus.STATUS_SPLITTING, MirrorStatus.STATUS_SEEDING]:
             msg += f"<blockquote><b>{progress_bar(download.progress())} » {download.speed()}</b>"
-            msg += f"\n<b>{download.processed_bytes()} of {download.size()} | {download.eta()}</b>'
-            msg += f"\nᴜsᴇʀ: {download.message.from_user.mention}"
+            msg += f"\n<b>{download.processed_bytes()} of {download.size()} | {download.eta()}</b>"
+            msg += f"\n<b>ᴜsᴇʀ:</b> {download.message.from_user.mention}"
             if hasattr(download, 'seeders_num'):
                 try:
                     msg += f" <b>| s/ʟ:</b> {download.seeders_num()}/{download.leechers_num()}"
