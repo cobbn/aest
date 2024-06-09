@@ -344,8 +344,8 @@ class MirrorLeechListener:
         name, _ = await process_file(name, user_id, isMirror=not self.isLeech)
         user_dict = user_data.get(user_id, {})
         msg = f'{escape(name)}\n\n'
-        msg += f'<b>⌑ sɪᴢᴇ: </b>{get_readable_file_size(size)}\n'
-        msg += f'<b>⌑ ᴇʟᴀᴘsᴇᴅ: </b>{get_readable_time(time() - self.message.date.timestamp())}\n'
+        msg += f'<blockquote><b>sɪᴢᴇ: </b>{get_readable_file_size(size)}\n'
+        msg += f'<b>ᴇʟᴀᴘsᴇᴅ: </b>{get_readable_time(time() - self.message.date.timestamp())}\n'
         LOGGER.info(f'Task Done: {name}')
         buttons = ButtonMaker()
         iButton = ButtonMaker()
@@ -353,11 +353,11 @@ class MirrorLeechListener:
         iButton = extra_btns(iButton)
         if self.isLeech:
             if folders > 1:
-                msg += f'<b>⌑ ᴛᴏᴛᴀʟ ғɪʟᴇs: </b>{folders}\n'
+                msg += f'<b>ᴛᴏᴛᴀʟ ғɪʟᴇs: </b>{folders}\n'
             if mime_type != 0:
-                msg += f'<b>⌑ ᴄᴏʀʀᴜᴘᴛᴇᴅ ғɪʟᴇs: </b>{mime_type}\n'
-            msg += f'<b>⌑ ᴜsᴇʀ ɪᴅ: </b><code>{self.message.from_user.id}</code>\n'
-            msg += f'<b>⌑ ᴜᴘʟᴏᴀᴅᴇᴅ ʙʏ: </b>{self.tag}\n\n'
+                msg += f'<b>ᴄᴏʀʀᴜᴘᴛᴇᴅ ғɪʟᴇs: </b>{mime_type}\n'
+            msg += f'<b>ᴜsᴇʀ ɪᴅ: </b><code>{self.message.from_user.id}</code>\n'
+            msg += f'<b>ᴜᴘʟᴏᴀᴅᴇᴅ ʙʏ: </b></blockquote>{self.tag}\n\n'
             if not files:
                 if self.isPrivate:
                     msg += '<b>ғɪʟᴇs ʜᴀᴠᴇ ɴᴏᴛ ʙᴇᴇɴ sᴇɴᴛ ғᴏʀ ᴀɴ ᴜɴsᴘᴇᴄɪғɪᴇᴅ ʀᴇᴀsᴏɴ.</b>'
@@ -397,7 +397,7 @@ class MirrorLeechListener:
                 return
         else:
             if mime_type == "Folder":
-                msg += f'<b>⌑ ᴛᴏᴛᴀʟ ғɪʟᴇs: </b>{files}\n'
+                msg += f'<b>ᴛᴏᴛᴀʟ ғɪʟᴇs: </b></blockquote>{files}\n'
             if link:
                 buttons.ubutton('☁️ ᴄʟᴏᴜᴅ ʟɪɴᴋ', link)
                 INDEX_URL = self.index_link if self.drive_id else config_dict['INDEX_URL']
@@ -468,8 +468,8 @@ class MirrorLeechListener:
         await asyncio.sleep(2)        
         msg = f'ʜᴇʏ, {self.tag}!\n'
         msg += 'ʏᴏᴜʀ ᴅᴏᴡɴʟᴏᴀᴅ ʜᴀs ʙᴇᴇɴ sᴛᴏᴘᴘᴇᴅ!\n\n'
-        msg += f'<b>ʀᴇᴀsᴏɴ: </b> {escape(error)}\n'
-        msg += f'<b>ᴇʟᴀᴘsᴇᴅ: </b> {get_readable_time(time() - self.message.date.timestamp())}'
+        msg += f'<blockquote><b>ʀᴇᴀsᴏɴ: </b> {escape(error)}\n'
+        msg += f'<b>ᴇʟᴀᴘsᴇᴅ: </b> {get_readable_time(time() - self.message.date.timestamp())}</blockquote>'
         x = await sendMessage(self.message, msg, button)
         await delete_links(self.message)
         if self.botpmmsg:
@@ -511,8 +511,8 @@ class MirrorLeechListener:
         await asyncio.sleep(2)
         msg = f'ʜᴇʏ, {self.tag}!\n'
         msg += 'ʏᴏᴜʀ ᴜᴘʟᴏᴀᴅ ʜᴀs ʙᴇᴇɴ sᴛᴏᴘᴘᴇᴅ!\n\n'
-        msg += f'<b>ʀᴇᴀsᴏɴ: </b> {escape(error)}\n'
-        msg += f'<b>ᴇʟᴀᴘsᴇᴅ: </b> {get_readable_time(time() - self.message.date.timestamp())}'
+        msg += f'<blockquote><b>ʀᴇᴀsᴏɴ: </b> {escape(error)}\n'
+        msg += f'<b>ᴇʟᴀᴘsᴇᴅ: </b> {get_readable_time(time() - self.message.date.timestamp())}</blockquote>'
         x = await sendMessage(self.message, msg)
         if self.linkslogmsg:
             await deleteMessage(self.linkslogmsg)
