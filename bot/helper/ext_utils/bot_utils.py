@@ -199,7 +199,7 @@ def source(self):
 
 
 def get_readable_message():
-    msg = "<b><a href='https://t.me/JetMirror'>Pᴏᴡᴇʀᴇᴅ ʙʏ ᴊᴇᴛ-ᴍɪʀʀᴏʀ 🚀♥️</a></b>\n\n"
+    msg = ""
     button = None
     tasks = len(download_dict)
     currentTime = get_readable_time(time() - botStartTime)
@@ -212,18 +212,14 @@ def get_readable_message():
         globals()['STATUS_START'] = STATUS_LIMIT * (PAGES - 1)
         globals()['PAGE_NO'] = PAGES
     for download in list(download_dict.values())[STATUS_START:STATUS_LIMIT+STATUS_START]:
-        msg += f"<b>{download.status()}</b>"
-        msg += f"<b>\n⌑ ғɪʟᴇɴᴀᴍᴇ</b> » <i>{escape(f'{download.name()}')}</i>\n"
+        msg += f"<b>{download.status()}</b> » <i>{escape(f'{download.name()}')}</i>\n"
         if download.status() not in [MirrorStatus.STATUS_SPLITTING, MirrorStatus.STATUS_SEEDING]:
-            msg += f"\n⌑ {progress_bar(download.progress())} » {download.progress()}"
-            msg += f"\n⌑ ᴅᴏɴᴇ: {download.processed_bytes()} of {download.size()}"
-            msg += f"\n⌑ sᴘᴇᴇᴅ: {download.speed()}"
-            msg += f'\n⌑ ᴇsᴛɪᴍᴀᴛᴇᴅ: {download.eta()}'
-            msg += f"\n⌑ ᴜsᴇʀ: {download.message.from_user.mention} \n⌑ ɪᴅ: <code>{download.message.from_user.id}</code>\n"
-            #msg += f"⌑ ᴇɴɢɪɴᴇ: {Engine=download.eng()}\n"
+            msg += f"<b>{progress_bar(download.progress())} » {download.speed()}</b>"
+            msg += f"\n<b>{download.processed_bytes()} of {download.size()} | {download.eta()}</b>'
+            msg += f"\nᴜsᴇʀ: {download.message.from_user.mention}"
             if hasattr(download, 'seeders_num'):
                 try:
-                    msg += f"⌑ sᴇᴇᴅᴇʀs: {download.seeders_num()} | ʟᴇᴇᴄʜᴇʀs: {download.leechers_num()}"
+                    msg += f" <b>| s/ʟ:</b> {download.seeders_num()}/{download.leechers_num()}"
                 except:
                     pass
         elif download.status() == MirrorStatus.STATUS_SEEDING:
@@ -234,8 +230,7 @@ def get_readable_message():
             msg += f"\n⌑ ᴛɪᴍᴇ: {download.seeding_time()}"
         else:
             msg += f"\n⌑ sɪᴢᴇ: {download.size()}"
-        msg += f"\n⌑ ᴇʟᴀᴘsᴇᴅ: {get_readable_time(time() - download.message.date.timestamp())}"
-        msg += f"\n⌑ ᴄᴀɴᴄᴇʟ ᴛᴀsᴋ: /stop_{download.gid()[:8]}\n\n"
+        msg += f"\n<b>/stop_{download.gid()[:8]}</b>\n\n"
     if len(msg) == 0:
         return None, None
     dl_speed = 0
@@ -254,11 +249,7 @@ def get_readable_message():
         buttons.ibutton(f"ʀᴇғ 🔄 {PAGE_NO}/{PAGES}", "status ref")
         buttons.ibutton("⬅️ ɴᴇxᴛ", "status nex")
         button = buttons.build_menu(3)
-    msg += f"<b>⌑ Tᴀsᴋs</b>: {tasks}{bmax_task}"
-    msg += f"\n<b>⌑ ʙᴏᴛ ᴜᴘᴛɪᴍᴇ</b>: {currentTime}"
-    msg += f"\n<b>⌑ ғʀᴇᴇ ᴅɪsᴋ sᴘᴀᴄᴇ</b>: {get_readable_file_size(disk_usage('/usr/src/app/downloads/').free)}"
-    msg += f"\n<b>⌑ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ sᴘᴇᴇᴅ</b>: {get_readable_file_size(dl_speed)}/s"
-    msg += f"\n<b>⌑ ᴜᴘʟᴏᴀᴅɪɴɢ sᴘᴇᴇᴅ</b>: {get_readable_file_size(up_speed)}/s"
+    msg += f"<b>Tᴀsᴋs:</b> {tasks}{bmax_task} <b> | ᴜᴘᴛɪᴍᴇ:</b> {currentTime} <b>| ғʀᴇᴇ:</b> {get_readable_file_size(disk_usage('/usr/src/app/downloads/').free)}"
     return msg, button
 
 
