@@ -214,7 +214,7 @@ def get_readable_message():
     for download in list(download_dict.values())[STATUS_START:STATUS_LIMIT+STATUS_START]:
         msg += f"<b>{download.status()}</b> » <i>{escape(f'{download.name()}')}</i>\n"
         if download.status() not in [MirrorStatus.STATUS_SPLITTING, MirrorStatus.STATUS_SEEDING]:
-            msg += f"<b>{progress_bar(download.progress())} » {download.speed()}</b>"
+            msg += f"<blockquote><b>{progress_bar(download.progress())} » {download.speed()}</b>"
             msg += f"\n<b>{download.processed_bytes()} of {download.size()} | {download.eta()}</b>'
             msg += f"\nᴜsᴇʀ: {download.message.from_user.mention}"
             if hasattr(download, 'seeders_num'):
@@ -223,14 +223,14 @@ def get_readable_message():
                 except:
                     pass
         elif download.status() == MirrorStatus.STATUS_SEEDING:
-            msg += f"\n⌑ sɪᴢᴇ: {download.size()}"
-            msg += f"\n⌑ sᴘᴇᴇᴅ: {download.upload_speed()}"
-            msg += f"\n⌑ ᴜᴘʟᴏᴀᴅᴇᴅ: {download.uploaded_bytes()}"
-            msg += f"\n⌑ ʀᴀᴛɪᴏ: {download.ratio()}"
-            msg += f"\n⌑ ᴛɪᴍᴇ: {download.seeding_time()}"
+            msg += f"\nsɪᴢᴇ: {download.size()}"
+            msg += f"\nsᴘᴇᴇᴅ: {download.upload_speed()}"
+            msg += f"\nᴜᴘʟᴏᴀᴅᴇᴅ: {download.uploaded_bytes()}"
+            msg += f"\nʀᴀᴛɪᴏ: {download.ratio()}"
+            msg += f"\nᴛɪᴍᴇ: {download.seeding_time()}"
         else:
-            msg += f"\n⌑ sɪᴢᴇ: {download.size()}"
-        msg += f"\n<b>/stop_{download.gid()[:8]}</b>\n\n"
+            msg += f"\nsɪᴢᴇ: {download.size()}"
+        msg += f"\n<b>/stop_{download.gid()[:8]}</b></blockquote>\n\n"
     if len(msg) == 0:
         return None, None
     dl_speed = 0
