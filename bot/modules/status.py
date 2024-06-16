@@ -24,9 +24,9 @@ async def mirror_status(_, message):
         quote = Quote.print().split('―', 1)[0].strip().replace("“", "").replace("”", "")
 
         msg = f''
-        msg += f"<b>ɴᴏ ᴅᴏᴡɴʟᴏᴀᴅs ᴀʀᴇ ᴄᴜʀʀᴇɴᴛʟʏ ɪɴ ᴘʀᴏɢʀᴇss.\</b>\n"
-        msg += f"\n<b>⌑ ʙᴏᴛ ᴜᴘᴛɪᴍᴇ</b>: {currentTime}"
-        msg += f"\n<b>⌑ ғʀᴇᴇ ᴅɪsᴋ sᴘᴀᴄᴇ</b>: {free}"
+        msg += f"<b>ɴᴏ ᴅᴏᴡɴʟᴏᴀᴅs ᴀʀᴇ ᴄᴜʀʀᴇɴᴛʟʏ ɪɴ ᴘʀᴏɢʀᴇss</b>\n"
+        msg += f"\n<b>ʙᴏᴛ ᴜᴘᴛɪᴍᴇ</b>: {currentTime}"
+        msg += f"\n<b>ғʀᴇᴇ ᴅɪsᴋ sᴘᴀᴄᴇ</b>: {free}"
         
         reply_message = await sendMessage(message, msg, photo='Random')
         await deleteMessage(message)
