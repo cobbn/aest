@@ -12,7 +12,7 @@ from bot.helper.ext_utils.bot_utils import get_readable_file_size, get_readable_
 import asyncio
 @new_task
 async def mirror_status(_, message):
-    sticker_message = await message.reply_sticker("CAACAgIAAxkBAAEXzJtlezBU92o9SmsFleHxnuyQWpkHnQACogEAAjDUnRH1ZwABIuJAFVczBA")
+    sticker_message = await message.reply_sticker("CAACAgIAAxkBAAEaLHRmbnW-fZ-mZX9UXb98VGhV8WKt3AACFEoAAhCZWUldVHUt-4yDvjUE")
     await asyncio.sleep(2)
     await sticker_message.delete()
     async with download_dict_lock:
