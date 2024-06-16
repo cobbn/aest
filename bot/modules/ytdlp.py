@@ -242,7 +242,7 @@ async def _mdisk(link, name):
 
 @new_task
 async def _ytdl(client, message, isLeech=False, sameDir=None, bulk=[]):
-    sticker_message = await message.reply_sticker("CAACAgEAAxkBAAEZd1RmJiS0v9Spb2wvNhBp612LpVboHwACfAQAAsWmoEceFoDzX5nHNzQE")
+    sticker_message = await message.reply_sticker("CAACAgIAAxkBAAEaLIBmbncn0IE7Z9VvqXAJknw5QPRUPgACNEIAAti-MEllJg-6Ojy62DUE")
     await asyncio.sleep(2)
     await sticker_message.delete()
     await send_react(message)
