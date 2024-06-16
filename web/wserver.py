@@ -242,20 +242,19 @@ function s_validate() {
 </script>
 </head>
 <body>
-  <!--© Designed and coded by @bipuldey19-Telegram-->
     <header>
       <div class="brand">
         <img
           src="https://graph.org/file/1a6ad157f55bc42b548df.png"
           alt="logo"
         />
-        <a href="https://t.me/hrishikesh2861">
+        <a href="https://t.me/acaatr">
           <h2 class="name">Bittorrent Selection</h2>
         </a>
       </div>
       <div class="social">
-        <a href="https://github.com/Hrishi2861/Aeon"><i class="fab fa-github"></i></a>
-        <a href="https://t.me/hrishikesh2861"><i class="fab fa-telegram"></i></a>
+        <a href="https://github.com/reaperbots"><i class="fab fa-github"></i></a>
+        <a href="https://t.me/acaatr"><i class="fab fa-telegram"></i></a>
       </div>
     </header>
     <div id="sticks">
@@ -634,20 +633,19 @@ section span{
     </style>
   </head>
 <body>
-   <!--© Designed and coded by @bipuldey19-Telegram-->
     <header>
       <div class="brand">
         <img
           src="https://graph.org/file/1a6ad157f55bc42b548df.png"
           alt="logo"
         />
-        <a href="https://t.me/hrishikesh2861">
+        <a href="https://t.me/acaatr">
           <h2 class="name">Bittorrent Selection</h2>
         </a>
       </div>
       <div class="social">
-        <a href="https://github.com/Hrishi2861/Aeon"><i class="fab fa-github"></i></a>
-        <a href="https://t.me/hrishikesh2861"><i class="fab fa-telegram"></i></a>
+        <a href="https://github.com/reaperbots"><i class="fab fa-github"></i></a>
+        <a href="https://t.me/acaatr"><i class="fab fa-telegram"></i></a>
       </div>
     </header>
     <section>
@@ -795,7 +793,7 @@ def set_priority(id_):
 
 @app.route('/')
 def homepage():
-    return "<h1>See Aeon <a href='https://github.com/Hrishi2861/Aeon'>@GitHub</a> By <a href='https://github.com/Hrishi2861'>Jet-Mirror ❤️🚀</a></h1>"
+    return "<h1>Reaper<a href='https://github.com/reaperbots'>@GitHub</a> By <a href='https://github.com/reaperbots'>Reaper</a></h1>"
 
 
 @app.errorhandler(Exception)
