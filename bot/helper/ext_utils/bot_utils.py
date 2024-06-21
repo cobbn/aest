@@ -245,9 +245,9 @@ def get_readable_message():
             up_speed += text_to_bytes(download.upload_speed())
     if tasks > STATUS_LIMIT:
         buttons = ButtonMaker()
-        buttons.ibutton("ᴘʀᴇᴠ ➡️", "status pre")
-        buttons.ibutton(f"ʀᴇғ 🔄 {PAGE_NO}/{PAGES}", "status ref")
-        buttons.ibutton("⬅️ ɴᴇxᴛ", "status nex")
+        buttons.ibutton("⬅️", "status pre")
+        buttons.ibutton(f"🔄 {PAGE_NO}/{PAGES}", "status ref")
+        buttons.ibutton("➡️", "status nex")
         button = buttons.build_menu(3)
     msg += f"<b>Tᴀsᴋs:</b> {tasks}{bmax_task} <b> | ᴜᴘᴛɪᴍᴇ:</b> {currentTime} <b>| ғʀᴇᴇ:</b> {get_readable_file_size(disk_usage('/usr/src/app/downloads/').free)}"
     return msg, button
